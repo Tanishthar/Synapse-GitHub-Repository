@@ -6,29 +6,31 @@ Bob = {"Conan Gray", "Joji", "Dove Cameron", "Mitski", "Arctic Monkeys", "Steve 
 Edith = {"Metallica", "Billie Eilish", "TheWeekend", "Mitski", "NF", "Conan Gray", "Kendrik Lamar", "Nicky Minaj", "Kanye West", "Coldplay"}
 
 DJ = ['Kevin', 'Stuart', 'Bob', 'Edith']
-combination = comb(DJ, 2)
-
 DJObject = [Kevin, Stuart, Bob, Edith]
-combination1 = comb(DJObject, 2)
 
 djName = []
 djiIntersection = []
 
-for dj1, dj2 in combination: 
+for dj1, dj2 in comb(DJ, 2): 
     djName.append(f"{dj1} and {dj2}")
 
-
-for djSet1, djSet2 in combination1:
-    intersectionSet = djSet1.intersection(djSet2)
-    percentage = ((len(intersectionSet)/10)*100)
+for djSet1, djSet2 in comb(DJObject, 2):
+    percentage = ((len(djSet1.intersection(djSet2))/10)*100)
     djiIntersection.append(percentage)
 
 output = list(zip(djName, djiIntersection))
-
 output = sorted(output, key=lambda x: x[1], reverse=True)
-
 print(output)
-# Kevin and Bob: 40% 
+
+# Output: 
+# [
+#    ('Kevin and Bob', 40.0), 
+#    ('Stuart and Bob', 40.0), 
+#    ('Stuart and Edith', 40.0), 
+#    ('Bob and Edith', 40.0), 
+#    ('Kevin and Edith', 30.0), 
+#    ('Kevin and Stuart', 10.0)
+# ]
     
 
 
